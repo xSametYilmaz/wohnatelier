@@ -30,7 +30,7 @@ export default function Home() {
         Website im Aufbau
       </div>
 
-      <a href="mailto:info@adakli.de" style={{ marginTop: "2rem", color: "#2a2521", textDecoration: "none", borderBottom: "1px solid #2a2521", paddingBottom: "2px", fontSize: "0.95rem" }}>
+      <a href="mailto:wohnatelier@adakli.de" style={{ marginTop: "2rem", color: "#2a2521", textDecoration: "none", borderBottom: "1px solid #2a2521", paddingBottom: "2px", fontSize: "0.95rem" }}>
         info@adakli.de
       </a>
     </main>
