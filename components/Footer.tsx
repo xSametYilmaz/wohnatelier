@@ -1,6 +1,9 @@
 export default function Footer() {
   return (
-    <footer id="kontakt" className="scroll-mt-20 bg-ink text-linen">
+    <footer
+      id="kontakt"
+      className="snap-panel-end scroll-mt-20 bg-ink text-linen"
+    >
       <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <p className="text-[0.65rem] uppercase tracking-[0.3em] text-stone">
           Kontakt

@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative h-svh min-h-[600px] w-full overflow-hidden">
+    <section
+      id="top"
+      className="snap-panel relative h-svh min-h-[600px] w-full overflow-hidden"
+    >
       <Image
         src="/images/hero.jpg"
         alt="Raum mit bodenlangen Vorhängen im Nachmittagslicht"

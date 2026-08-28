@@ -124,6 +124,95 @@ body {
   animation: nudge 2.4s ease-in-out infinite;
 }
 
+/* --- Snap-Scrolling -----------------------------------------------------
+   Abschnitte rasten beim Scrollen ein. Auf kleinen oder flachen Fenstern
+   nur `proximity`, weil dort Inhalt hoeher als das Sichtfeld sein kann –
+   `mandatory` wuerde ihn sonst unerreichbar machen.                       */
+.snap-panel {
+  scroll-snap-align: start;
+}
+
+/* Der Footer rastet mit der Unterkante ein, damit sein Ende erreichbar
+   bleibt, auch wenn er hoeher als das Sichtfeld ist. */
+.snap-panel-end {
+  scroll-snap-align: end;
+}
+
+/* Nur Seiten mit echten Snap-Abschnitten (die Startseite) snappen. Auf
+   /ueber-uns gaebe es sonst nur den Footer als Snap-Punkt – `mandatory`
+   wuerde dort ans Seitenende zwingen und den Inhalt unerreichbar machen. */
+@media (min-height: 640px) {
+  html:has(.snap-panel) {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 780px) {
+  html:has(.snap-panel) {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+/* --- Kapitel-Aufbau ------------------------------------------------------
+   Stufe 1 zeigt Nummer und Titel und blendet sich wieder aus, Stufe 2
+   zieht danach Bild und Text nach. Ohne JS entfaellt Stufe 1 komplett,
+   sonst wuerde die Karte den Inhalt dauerhaft verdecken.                  */
+@keyframes chapter-intro {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  22% {
+    opacity: 1;
+    transform: none;
+  }
+  58% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+}
+
+.stage-intro {
+  display: none;
+}
+
+.js .stage-intro {
+  display: flex;
+  opacity: 0;
+}
+
+.js .is-active .stage-intro {
+  animation: chapter-intro 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stufe 2 wartet, bis die Titelkarte durch ist. Die Verzoegerung haengt
+   am sichtbaren Zustand, damit das Ausblenden beim Wegscrollen sofort
+   passiert und nicht ebenfalls verzoegert wird. */
+.stage-content .curtain.is-open,
+.stage-content .curtain.is-open .curtain-inner {
+  transition-delay: 1.55s;
+}
+
+.stage-content .reveal.is-visible {
+  transition-delay: 1.7s;
+}
+
+.stage-content .reveal-delay-1.is-visible {
+  transition-delay: 1.85s;
+}
+
+.stage-content .reveal-delay-2.is-visible {
+  transition-delay: 2s;
+}
+
+.stage-content .reveal-delay-3.is-visible {
+  transition-delay: 2.15s;
+}
+
 /* --- Barrierefreiheit --------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -137,8 +226,15 @@ body {
   .nudge {
     animation: none !important;
     transition: none !important;
+    transition-delay: 0s !important;
     opacity: 1 !important;
     transform: none !important;
     clip-path: inset(0) !important;
+  }
+
+  /* Die Titelkarte faellt weg, statt sichtbar stehen zu bleiben und den
+     Inhalt zu verdecken. */
+  .stage-intro {
+    display: none !important;
   }
 }
