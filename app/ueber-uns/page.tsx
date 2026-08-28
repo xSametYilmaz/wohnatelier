@@ -46,7 +46,7 @@ export default function UeberUnsPage() {
 
         <div className="mt-16 border-t border-sand pt-10">
           <Link
-            href="/#kontakt"
+            href="/kontakt"
             className="group inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.24em] text-ink"
           >
             Beratung anfragen

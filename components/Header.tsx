@@ -11,7 +11,7 @@ type Props = {
 
 const links = [
   { href: "/ueber-uns", label: "Über uns" },
-  { href: "/#kontakt", label: "Kontakt" },
+  { href: "/kontakt", label: "Kontakt" },
 ];
 
 const instagram = "https://www.instagram.com/wohnatelier.adakli/";

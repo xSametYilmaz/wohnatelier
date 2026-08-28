@@ -95,7 +95,7 @@ export default function ProductSection({ section, flipped }: Props) {
           </p>
 
           <a
-            href="#kontakt"
+            href="/kontakt"
             className={`reveal reveal-delay-3 ${state} group mt-7 inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.24em] text-linen lg:mt-9 lg:text-ink`}
           >
             Beratung anfragen

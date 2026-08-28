@@ -112,6 +112,33 @@ export default function DatenschutzPage() {
 
           <section>
             <h2 className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
+              Kontaktformular
+            </h2>
+            <p className="mt-4">
+              Wenn Sie uns das Kontaktformular senden, verarbeiten wir die
+              dort eingetragenen Angaben: Vorname, Nachname, E-Mail-Adresse,
+              auf Wunsch Ihre Telefonnummer sowie Ihr Anliegen. Die Angaben
+              werden nicht in einer Datenbank gespeichert, sondern
+              ausschließlich als E-Mail an unser Postfach übertragen und dort
+              wie jede andere Anfrage bearbeitet.
+            </p>
+            <p className="mt-4">
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre
+              Anfrage der Vorbereitung oder Durchführung eines Vertrags dient,
+              sonst Art. 6 Abs. 1 lit. f DSGVO aufgrund unseres berechtigten
+              Interesses an der Beantwortung von Anfragen. Die Angabe von
+              Telefonnummer ist freiwillig, die übrigen Felder benötigen wir,
+              um Ihnen antworten zu können.
+            </p>
+            <p className="mt-4">
+              Der Versand erfolgt über den Mailserver von [Name und Anschrift
+              des E-Mail-Anbieters]. Ein Weiterleiten an sonstige Dritte
+              findet nicht statt.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
               Kontaktaufnahme
             </h2>
             <p className="mt-4">
