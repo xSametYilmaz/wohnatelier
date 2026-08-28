@@ -5,13 +5,9 @@ export default function Footer() {
       className="snap-panel flex min-h-svh scroll-mt-20 items-center bg-ink text-linen"
     >
       <div className="mx-auto w-full max-w-6xl px-6 py-14 md:px-10 md:py-28">
-        <p className="text-[0.65rem] uppercase tracking-[0.3em] text-stone">
-          Raumausstattung nach Maß
-        </p>
-
-        <h2 className="font-display mt-6 text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-light">
-          Wir kommen zum Aufmaß
-          <span className="block italic">zu Ihnen.</span>
+        <h2 className="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-light">
+          Raumausstattung
+          <span className="block italic">nach Maß.</span>
         </h2>
 
         {/* Am Handy zweispaltig, damit der Footer in eine Bildschirmhoehe
