@@ -125,9 +125,9 @@ body {
 }
 
 /* --- Snap-Scrolling -----------------------------------------------------
-   Abschnitte rasten beim Scrollen ein. Auf kleinen oder flachen Fenstern
-   nur `proximity`, weil dort Inhalt hoeher als das Sichtfeld sein kann –
-   `mandatory` wuerde ihn sonst unerreichbar machen.                       */
+   Nur am grossen Bildschirm. Auf dem Handy sind die Abschnitte hoeher
+   als das Sichtfeld, dort fuehlt sich das Einrasten stoerend an – also
+   bleibt es beim normalen Scrollen.                                      */
 .snap-panel {
   scroll-snap-align: start;
 }
@@ -141,12 +141,6 @@ body {
 /* Nur Seiten mit echten Snap-Abschnitten (die Startseite) snappen. Auf
    /ueber-uns gaebe es sonst nur den Footer als Snap-Punkt – `mandatory`
    wuerde dort ans Seitenende zwingen und den Inhalt unerreichbar machen. */
-@media (min-height: 640px) {
-  html:has(.snap-panel) {
-    scroll-snap-type: y proximity;
-  }
-}
-
 @media (min-width: 1024px) and (min-height: 780px) {
   html:has(.snap-panel) {
     scroll-snap-type: y mandatory;
