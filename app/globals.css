@@ -174,37 +174,42 @@ body {
   display: none;
 }
 
-.js .stage-intro {
-  display: flex;
-  opacity: 0;
-}
+/* Karte und Wartezeit gibt es nur am grossen Bildschirm. Am Handy traegt
+   das Bild den Titel selbst – dort waere eine deckende Karte nur ein
+   leerer Block, an dem man vorbeiscrollt. */
+@media (min-width: 1024px) {
+  .js .stage-intro {
+    display: flex;
+    opacity: 0;
+  }
 
-.js .is-active .stage-intro {
-  animation: chapter-intro 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+  .js .is-active .stage-intro {
+    animation: chapter-intro 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 
-/* Stufe 2 wartet, bis die Titelkarte durch ist. Die Verzoegerung haengt
-   am sichtbaren Zustand, damit das Ausblenden beim Wegscrollen sofort
-   passiert und nicht ebenfalls verzoegert wird. */
-.stage-content .curtain.is-open,
-.stage-content .curtain.is-open .curtain-inner {
-  transition-delay: 1.55s;
-}
+  /* Stufe 2 wartet, bis die Titelkarte durch ist. Die Verzoegerung haengt
+     am sichtbaren Zustand, damit das Ausblenden beim Wegscrollen sofort
+     passiert und nicht ebenfalls verzoegert wird. */
+  .stage-content .curtain.is-open,
+  .stage-content .curtain.is-open .curtain-inner {
+    transition-delay: 1.55s;
+  }
 
-.stage-content .reveal.is-visible {
-  transition-delay: 1.7s;
-}
+  .stage-content .reveal.is-visible {
+    transition-delay: 1.7s;
+  }
 
-.stage-content .reveal-delay-1.is-visible {
-  transition-delay: 1.85s;
-}
+  .stage-content .reveal-delay-1.is-visible {
+    transition-delay: 1.85s;
+  }
 
-.stage-content .reveal-delay-2.is-visible {
-  transition-delay: 2s;
-}
+  .stage-content .reveal-delay-2.is-visible {
+    transition-delay: 2s;
+  }
 
-.stage-content .reveal-delay-3.is-visible {
-  transition-delay: 2.15s;
+  .stage-content .reveal-delay-3.is-visible {
+    transition-delay: 2.15s;
+  }
 }
 
 /* --- Barrierefreiheit --------------------------------------------------- */

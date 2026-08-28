@@ -21,9 +21,10 @@ export default function ProductSection({ section, flipped }: Props) {
         inView ? "is-active" : ""
       }`}
     >
-      {/* Stufe 1: Kapitelnummer und Titel. Blendet sich von selbst wieder
-          aus und gibt danach Stufe 2 frei. Fuer Screenreader unsichtbar,
-          weil der Titel unten als Ueberschrift noch einmal auftaucht. */}
+      {/* Stufe 1, nur am grossen Bildschirm: Kapitelnummer und Titel als
+          Karte, die sich selbst wieder ausblendet und Stufe 2 freigibt.
+          Fuer Screenreader unsichtbar, weil der Titel unten als
+          Ueberschrift noch einmal auftaucht. */}
       <div
         aria-hidden="true"
         className="stage-intro pointer-events-none absolute inset-x-0 top-0 h-svh items-center justify-center bg-linen px-6"
@@ -40,11 +41,11 @@ export default function ProductSection({ section, flipped }: Props) {
       </div>
 
       {/* Stufe 2: Bild und Text */}
-      <div className="stage-content mx-auto flex h-full max-w-6xl flex-col justify-center gap-10 px-6 py-24 md:px-10 lg:flex-row lg:items-center lg:gap-20 lg:py-0">
-        {/* Bild */}
-        <div className={`lg:w-[55%] ${flipped ? "lg:order-2" : ""}`}>
+      <div className="stage-content mx-auto flex h-full max-w-6xl flex-col justify-center pb-24 lg:flex-row lg:items-center lg:gap-20 lg:px-10 lg:pb-0">
+        {/* Bild – am Handy randlos, mit Titel darauf */}
+        <div className={`relative w-full lg:w-[55%] ${flipped ? "lg:order-2" : ""}`}>
           <div
-            className={`curtain relative aspect-4/5 w-full overflow-hidden sm:aspect-3/2 lg:aspect-auto lg:h-[66svh] ${
+            className={`curtain relative h-[75svh] w-full overflow-hidden lg:h-[66svh] ${
               inView ? "is-open" : ""
             }`}
           >
@@ -52,26 +53,47 @@ export default function ProductSection({ section, flipped }: Props) {
               src={section.image}
               alt={section.alt}
               fill
+              priority={section.index === "01"}
               sizes="(max-width: 1024px) 100vw, 55vw"
               className="curtain-inner object-cover"
             />
           </div>
+
+          {/* Titel auf dem Bild. Der Verlauf haelt die Schrift lesbar,
+              egal wie hell das Bild an der Stelle ist. */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent px-6 pt-28 pb-10 lg:hidden">
+            <span
+              className={`reveal reveal-delay-2 ${state} font-body block text-xs tracking-[0.3em] text-brass`}
+            >
+              {section.index}
+            </span>
+            <h2
+              className={`reveal reveal-delay-3 ${state} font-display mt-3 text-[clamp(2.2rem,11vw,3.4rem)] leading-[1.02] font-light text-linen`}
+            >
+              {section.title}
+            </h2>
+          </div>
         </div>
 
         {/* Text */}
-        <div className={`lg:w-[45%] ${flipped ? "lg:order-1" : ""}`}>
+        <div
+          className={`px-6 pt-10 md:px-10 lg:w-[45%] lg:px-0 lg:pt-0 ${
+            flipped ? "lg:order-1" : ""
+          }`}
+        >
           <div className={`reveal ${state} flex items-center gap-4`}>
-            <span className="font-body text-xs tracking-[0.3em] text-brass">
+            <span className="font-body hidden text-xs tracking-[0.3em] text-brass lg:inline">
               {section.index}
             </span>
-            <span className="h-px w-10 bg-sand" />
+            <span className="hidden h-px w-10 bg-sand lg:block" />
             <span className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
               {section.eyebrow}
             </span>
           </div>
 
+          {/* Am Handy steht der Titel schon auf dem Bild. */}
           <h2
-            className={`reveal reveal-delay-1 ${state} font-display mt-6 text-[clamp(2.2rem,6vw,4rem)] leading-[1.02] font-light`}
+            className={`reveal reveal-delay-1 ${state} font-display mt-6 hidden text-[clamp(2.2rem,6vw,4rem)] leading-[1.02] font-light lg:block`}
           >
             {section.title}
           </h2>
