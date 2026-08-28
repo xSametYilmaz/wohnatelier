@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <SideNav />
 
-      <main>
+      <main className="snap-page">
         <Hero />
 
         {sections.map((section, i) => (
