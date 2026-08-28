@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -36,6 +37,19 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
 export default function Header({ solid = false }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Auf der Startseite fuehrt ein Klick aufs Logo nicht zu einer neuen
+  // Route – dort stattdessen nach oben scrollen.
+  const onLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      // Ohne `behavior` gilt scroll-behavior aus dem CSS, das bei
+      // prefers-reduced-motion bereits auf auto steht.
+      window.scrollTo({ top: 0 });
+    }
+  };
 
   useEffect(() => {
     if (solid) return;
@@ -74,7 +88,8 @@ export default function Header({ solid = false }: Props) {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
           <Link
             href="/"
-            onClick={() => setOpen(false)}
+            onClick={onLogoClick}
+            aria-label="Zur Startseite"
             className="font-display text-lg tracking-[0.18em] uppercase md:text-xl"
           >
             Adakli
