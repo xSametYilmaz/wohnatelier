@@ -125,32 +125,28 @@ body {
 }
 
 /* --- Snap-Scrolling -----------------------------------------------------
-   Jeder Abschnitt ist genau eine Bildschirmhoehe hoch, deshalb rastet es
-   auf allen Groessen ein. Am Handy nur `proximity`: Der Footer ist dort
-   hoeher als das Sichtfeld und waere mit `mandatory` nur zur Haelfte
-   erreichbar.                                                            */
+   Jeder Abschnitt inklusive Footer ist eine Bildschirmhoehe hoch, also
+   rastet `mandatory` sauber ein: Eine Wischgeste landet immer auf dem
+   naechsten Abschnitt, nie dazwischen.                                   */
 .snap-panel {
   scroll-snap-align: start;
-}
-
-/* Der Footer rastet mit der Unterkante ein, damit sein Ende erreichbar
-   bleibt, auch wenn er hoeher als das Sichtfeld ist. */
-.snap-panel-end {
-  scroll-snap-align: end;
 }
 
 /* Nur Seiten mit echten Snap-Abschnitten (die Startseite) snappen. Auf
    /ueber-uns gaebe es sonst nur den Footer als Snap-Punkt – `mandatory`
    wuerde dort ans Seitenende zwingen und den Inhalt unerreichbar machen. */
-@media (min-height: 640px) {
+@media (min-height: 700px) {
   html:has(.snap-panel) {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 }
 
-@media (min-width: 1024px) and (min-height: 780px) {
+/* Flache Fenster (Handy im Querformat, kleine Browserfenster): Dort ist
+   ein Abschnitt hoeher als das Sichtfeld, `mandatory` wuerde den unteren
+   Teil einsperren. */
+@media (min-height: 560px) and (max-height: 699px) {
   html:has(.snap-panel) {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 }
 

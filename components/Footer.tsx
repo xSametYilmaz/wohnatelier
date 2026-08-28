@@ -2,9 +2,9 @@ export default function Footer() {
   return (
     <footer
       id="kontakt"
-      className="snap-panel-end scroll-mt-20 bg-ink text-linen"
+      className="snap-panel flex min-h-svh scroll-mt-20 items-center bg-ink text-linen"
     >
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+      <div className="mx-auto w-full max-w-6xl px-6 py-14 md:px-10 md:py-28">
         <p className="text-[0.65rem] uppercase tracking-[0.3em] text-stone">
           Kontakt
         </p>
@@ -14,7 +14,9 @@ export default function Footer() {
           <span className="block italic">zu Ihnen.</span>
         </h2>
 
-        <div className="mt-14 grid gap-10 border-t border-ash pt-10 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Am Handy zweispaltig, damit der Footer in eine Bildschirmhoehe
+            passt und als Snap-Abschnitt vollstaendig sichtbar bleibt. */}
+        <div className="mt-10 grid grid-cols-2 gap-8 border-t border-ash pt-8 md:mt-14 md:gap-10 md:pt-10 lg:grid-cols-3">
           <div>
             <p className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
               Adresse
@@ -55,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-ash pt-8 text-[0.7rem] tracking-[0.16em] text-stone sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-ash pt-6 text-[0.7rem] tracking-[0.16em] text-stone md:mt-16 md:pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Wohnatelier Adakli</p>
           <p className="flex gap-6">
             <a href="/impressum" className="hover:text-linen">
