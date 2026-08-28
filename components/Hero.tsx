@@ -33,11 +33,14 @@ export default function Hero() {
           style={{ animationDelay: "0.6s" }}
         />
 
+        {/* Bewusst ohne `uppercase`: text-transform macht aus "Maße" ein
+            "MASSE", der Satz laese sich dann als "in voller Masse" und das
+            Wortspiel waere hin. */}
         <p
-          className="rise mt-8 max-w-md text-sm leading-relaxed tracking-[0.14em] uppercase md:text-base"
+          className="rise mt-8 max-w-md text-[0.95rem] leading-relaxed tracking-[0.1em] md:text-lg"
           style={{ animationDelay: "0.75s" }}
         >
-          Raumausstattung nach Maß
+          Meisterhandwerk in vollem Maße
         </p>
       </div>
 

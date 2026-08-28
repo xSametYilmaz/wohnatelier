@@ -64,8 +64,7 @@ export default function ImpressumPage() {
               Berufsrechtliche Angaben
             </h2>
             <p className="mt-4">
-              Berufsbezeichnung: [z. B. Raumausstatter-Meisterin oder
-              Raumausstatter-Meister]
+              Berufsbezeichnung: Raumausstattermeister
               <br />
               Verliehen in: Deutschland
               <br />
