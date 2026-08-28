@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Karla } from "next/font/google";
+import HydrationFlag from "@/components/HydrationFlag";
 import "./globals.css";
 
 const bodoni = Bodoni_Moda({
@@ -32,16 +33,20 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Scroll-Animationen sind Progressive Enhancement: Erst wenn JS
-            läuft, wird der Inhalt anfangs versteckt und dann eingeblendet.
-            Ohne JS bleibt alles sichtbar statt dauerhaft weiß. */}
+        {/* Scroll-Animationen sind Progressive Enhancement. Die `js`-Klasse
+            versteckt den Startzustand ohne Aufblitzen. Hydratisiert React
+            nicht (Bundle blockiert, JS-Fehler), wird die Klasse wieder
+            entfernt – sonst bliebe die Seite dauerhaft leer. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js")`,
+            __html: `document.documentElement.classList.add("js");setTimeout(function(){if(!document.documentElement.hasAttribute("data-hydrated"))document.documentElement.classList.remove("js")},5000)`,
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <HydrationFlag />
+        {children}
+      </body>
     </html>
   );
 }

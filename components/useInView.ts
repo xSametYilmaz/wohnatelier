@@ -28,15 +28,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.25) {
     );
 
     observer.observe(el);
-
-    // Sicherheitsnetz: Falls der Observer nie auslöst, darf der Inhalt
-    // nicht dauerhaft unsichtbar bleiben.
-    const fallback = window.setTimeout(() => setInView(true), 3000);
-
-    return () => {
-      window.clearTimeout(fallback);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [threshold]);
 
   return { ref, inView };
