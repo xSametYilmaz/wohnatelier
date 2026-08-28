@@ -26,21 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="de"
-      className={`${bodoni.variable} ${karla.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        {/* Scroll-Animationen sind Progressive Enhancement: Erst wenn JS
-            läuft, wird der Inhalt anfangs versteckt und dann eingeblendet.
-            Ohne JS bleibt alles sichtbar statt dauerhaft weiß. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js")`,
-          }}
-        />
-      </head>
+    <html lang="de" className={`${bodoni.variable} ${karla.variable}`}>
       <body>{children}</body>
     </html>
   );

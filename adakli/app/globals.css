@@ -37,15 +37,10 @@ body {
 
 /* --- Signature: der Vorhang-Wipe ---------------------------------------
    Bilder öffnen sich beim Scrollen aus der Mitte nach außen,
-   wie ein Vorhang, der aufgezogen wird.
-   Der Startzustand haengt an `.js` auf dem html-Element: Laeuft kein
-   JavaScript, bleibt der Inhalt sichtbar statt dauerhaft ausgeblendet.   */
+   wie ein Vorhang, der aufgezogen wird.                                  */
 .curtain {
-  transition: clip-path 1.15s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.js .curtain {
   clip-path: inset(0 50% 0 50%);
+  transition: clip-path 1.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .curtain.is-open {
@@ -53,11 +48,8 @@ body {
 }
 
 .curtain-inner {
-  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.js .curtain-inner {
   transform: scale(1.12);
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .curtain.is-open .curtain-inner {
@@ -66,14 +58,11 @@ body {
 
 /* --- Text-Reveal ------------------------------------------------------- */
 .reveal {
+  opacity: 0;
+  transform: translateY(18px);
   transition:
     opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.js .reveal {
-  opacity: 0;
-  transform: translateY(18px);
 }
 
 .reveal.is-visible {
@@ -103,7 +92,7 @@ body {
   }
 }
 
-.js .rise {
+.rise {
   opacity: 0;
   animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
