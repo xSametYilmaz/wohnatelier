@@ -5,11 +5,7 @@ export default function Footer() {
       className="snap-panel flex min-h-svh scroll-mt-20 items-center bg-ink text-linen"
     >
       <div className="mx-auto w-full max-w-6xl px-6 py-14 md:px-10 md:py-28">
-        <p className="text-[0.65rem] uppercase tracking-[0.3em] text-stone">
-          Kontakt
-        </p>
-
-        <h2 className="font-display mt-6 text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-light">
+        <h2 className="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-light">
           Wir kommen zum Aufmaß
           <span className="block italic">zu Ihnen.</span>
         </h2>
@@ -32,15 +28,17 @@ export default function Footer() {
 
           <div>
             <p className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
-              Erreichbarkeit
+              Kontakt
             </p>
-            <p className="mt-3 text-sm leading-relaxed">
-              <a href="tel:+49000000000" className="hover:text-sand">
-                Telefonnummer
+            {/* break-words: Die Mailadresse ist in der zweispaltigen
+                Handy-Ansicht genau so breit wie die Spalte. */}
+            <p className="mt-3 text-sm leading-relaxed break-words">
+              <a href="tel:+491746012271" className="hover:text-sand">
+                +49 174 6012271
               </a>
               <br />
-              <a href="mailto:info@adakli.de" className="hover:text-sand">
-                info@adakli.de
+              <a href="mailto:wohnatelier@adakli.de" className="hover:text-sand">
+                wohnatelier@adakli.de
               </a>
             </p>
           </div>
