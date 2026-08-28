@@ -17,17 +17,17 @@ export default function ProductSection({ section, flipped }: Props) {
     <section
       id={section.id}
       ref={ref}
-      className={`snap-panel relative scroll-mt-20 lg:h-svh ${
+      className={`snap-panel relative h-svh min-h-[600px] scroll-mt-20 ${
         inView ? "is-active" : ""
       }`}
     >
-      {/* Stufe 1, nur am grossen Bildschirm: Kapitelnummer und Titel als
-          Karte, die sich selbst wieder ausblendet und Stufe 2 freigibt.
-          Fuer Screenreader unsichtbar, weil der Titel unten als
-          Ueberschrift noch einmal auftaucht. */}
+      {/* Stufe 1: Kapitelnummer und Titel. Blendet sich von selbst wieder
+          aus und gibt Stufe 2 frei. z-10, damit die Karte ueber Bild und
+          Text liegt. Fuer Screenreader unsichtbar, weil der Titel unten
+          als Ueberschrift noch einmal auftaucht. */}
       <div
         aria-hidden="true"
-        className="stage-intro pointer-events-none absolute inset-x-0 top-0 h-svh items-center justify-center bg-linen px-6"
+        className="stage-intro pointer-events-none absolute inset-0 z-10 items-center justify-center bg-linen px-6"
       >
         <div className="flex items-center gap-5 md:gap-8">
           <span className="font-body text-xs tracking-[0.3em] text-brass md:text-sm">
@@ -41,11 +41,16 @@ export default function ProductSection({ section, flipped }: Props) {
       </div>
 
       {/* Stufe 2: Bild und Text */}
-      <div className="stage-content mx-auto flex h-full max-w-6xl flex-col justify-center pb-24 lg:flex-row lg:items-center lg:gap-20 lg:px-10 lg:pb-0">
-        {/* Bild – am Handy randlos, mit Titel darauf */}
-        <div className={`relative w-full lg:w-[55%] ${flipped ? "lg:order-2" : ""}`}>
+      <div className="stage-content mx-auto flex h-full max-w-6xl flex-col justify-center lg:flex-row lg:items-center lg:gap-20 lg:px-10">
+        {/* Bild – am Handy fuellt es den ganzen Abschnitt, am Desktop
+            steht es als Spalte neben dem Text. */}
+        <div
+          className={`absolute inset-0 lg:static lg:w-[55%] ${
+            flipped ? "lg:order-2" : ""
+          }`}
+        >
           <div
-            className={`curtain relative h-[75svh] w-full overflow-hidden lg:h-[66svh] ${
+            className={`curtain relative h-full w-full overflow-hidden lg:h-[66svh] ${
               inView ? "is-open" : ""
             }`}
           >
@@ -58,58 +63,43 @@ export default function ProductSection({ section, flipped }: Props) {
               className="curtain-inner object-cover"
             />
           </div>
-
-          {/* Titel auf dem Bild. Der Verlauf haelt die Schrift lesbar,
-              egal wie hell das Bild an der Stelle ist. */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent px-6 pt-28 pb-10 lg:hidden">
-            <span
-              className={`reveal reveal-delay-2 ${state} font-body block text-xs tracking-[0.3em] text-brass`}
-            >
-              {section.index}
-            </span>
-            <h2
-              className={`reveal reveal-delay-3 ${state} font-display mt-3 text-[clamp(2.2rem,11vw,3.4rem)] leading-[1.02] font-light text-linen`}
-            >
-              {section.title}
-            </h2>
-          </div>
         </div>
 
-        {/* Text */}
+        {/* Text – am Handy im Bild auf einem Verlauf, damit der Abschnitt
+            in eine Bildschirmhoehe passt und sauber einrasten kann. */}
         <div
-          className={`px-6 pt-10 md:px-10 lg:w-[45%] lg:px-0 lg:pt-0 ${
+          className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-6 pt-32 pb-14 lg:static lg:bg-none lg:p-0 lg:w-[45%] ${
             flipped ? "lg:order-1" : ""
           }`}
         >
           <div className={`reveal ${state} flex items-center gap-4`}>
-            <span className="font-body hidden text-xs tracking-[0.3em] text-brass lg:inline">
+            <span className="font-body text-xs tracking-[0.3em] text-brass">
               {section.index}
             </span>
-            <span className="hidden h-px w-10 bg-sand lg:block" />
-            <span className="text-[0.65rem] uppercase tracking-[0.24em] text-stone">
+            <span className="h-px w-10 bg-sand/60 lg:bg-sand" />
+            <span className="text-[0.65rem] uppercase tracking-[0.24em] text-sand lg:text-stone">
               {section.eyebrow}
             </span>
           </div>
 
-          {/* Am Handy steht der Titel schon auf dem Bild. */}
           <h2
-            className={`reveal reveal-delay-1 ${state} font-display mt-6 hidden text-[clamp(2.2rem,6vw,4rem)] leading-[1.02] font-light lg:block`}
+            className={`reveal reveal-delay-1 ${state} font-display mt-4 text-[clamp(2rem,9vw,4rem)] leading-[1.02] font-light text-linen lg:mt-6 lg:text-ink`}
           >
             {section.title}
           </h2>
 
           <p
-            className={`reveal reveal-delay-2 ${state} mt-6 max-w-prose text-[0.98rem] leading-[1.85] text-ash`}
+            className={`reveal reveal-delay-2 ${state} mt-4 max-w-prose text-[0.92rem] leading-[1.75] text-linen/85 lg:mt-6 lg:text-[0.98rem] lg:leading-[1.85] lg:text-ash`}
           >
             {section.body}
           </p>
 
           <a
             href="#kontakt"
-            className={`reveal reveal-delay-3 ${state} group mt-9 inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.24em] text-ink`}
+            className={`reveal reveal-delay-3 ${state} group mt-7 inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.24em] text-linen lg:mt-9 lg:text-ink`}
           >
             Beratung anfragen
-            <span className="h-px w-8 bg-ink transition-all duration-500 group-hover:w-14" />
+            <span className="h-px w-8 bg-linen transition-all duration-500 group-hover:w-14 lg:bg-ink" />
           </a>
         </div>
       </div>
