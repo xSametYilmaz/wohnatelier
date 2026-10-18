@@ -43,7 +43,7 @@ export const sections: Section[] = [
     eyebrow: "Licht stufenlos dosieren",
     body: "Der Klassiker für Räume, in denen sich das Licht über den Tag verändert. Über die Lamellenstellung regeln Sie die Helligkeit stufenlos, ohne den Blick nach draußen aufzugeben. In Aluminium für Bad und Küche, in Holz für Wohnräume.",
     image: "/images/jalousien.jpg",
-    alt: "Holzjalousie mit schräg gestellten Lamellen",
+    alt: "Helle Jalousien an zwei Fenstern, Lamellen schräg gestellt",
   },
   {
     id: "vorhangschiene",
