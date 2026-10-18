@@ -33,8 +33,8 @@ export default function Footer() {
             {/* break-words: Die Mailadresse ist in der zweispaltigen
                 Handy-Ansicht genau so breit wie die Spalte. */}
             <p className="mt-3 text-sm leading-relaxed break-words">
-              <a href="tel:+491746012271" className="hover:text-sand">
-                +49 174 6012271
+              <a href="tel:+491774009151" className="hover:text-sand">
+                +49 177 4009151
               </a>
               <br />
               <a href="mailto:wohnatelier@adakli.de" className="hover:text-sand">

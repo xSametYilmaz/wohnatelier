@@ -45,4 +45,13 @@ export const sections: Section[] = [
     image: "/images/jalousien.jpg",
     alt: "Holzjalousie mit schräg gestellten Lamellen",
   },
+  {
+    id: "vorhangschiene",
+    index: "05",
+    title: "Vorhangschiene",
+    eyebrow: "Die Technik hinter dem Fall",
+    body: "Ob ein Vorhang gut fällt, entscheidet sich oft an der Schiene. Wir montieren Vorhangschienen an Decke oder Wand – gerade, gebogen oder um die Ecke geführt, ein- oder mehrläufig für Store und Übergardine. Leise im Lauf, passend gekürzt und so gesetzt, dass am Ende nur der Stoff zu sehen ist.",
+    image: "/images/vorhangschiene.jpg",
+    alt: "Vorhangschiene an der Decke mit eingehängtem Vorhang",
+  },
 ];

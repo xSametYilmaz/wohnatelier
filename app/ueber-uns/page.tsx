@@ -27,9 +27,9 @@ export default function UeberUnsPage() {
         <div className="mt-12 space-y-7 text-[0.98rem] leading-[1.85] text-ash">
           <p>
             Das Wohnatelier Adakli ist ein Raumausstatter-Betrieb, der
-            Vorhänge, Plissees, Rollos und Jalousien nach Maß fertigt. Kein
-            Katalogprodukt von der Stange, sondern eine Lösung, die zu Ihrem
-            Fenster, Ihrem Licht und Ihrem Alltag passt.
+            Vorhänge, Plissees, Rollos, Jalousien und Vorhangschienen nach Maß
+            fertigt. Kein Katalogprodukt von der Stange, sondern eine Lösung,
+            die zu Ihrem Fenster, Ihrem Licht und Ihrem Alltag passt.
           </p>
           <p>
             Wir kommen zum Aufmaß zu Ihnen nach Hause. Dort sehen wir, wie

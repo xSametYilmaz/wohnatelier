@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Kontakt – Wohnatelier Adakli",
   description:
-    "Anfrage für Maßvorhänge, Plissees, Rollos und Jalousien. Wir kommen zum Aufmaß zu Ihnen.",
+    "Anfrage für Maßvorhänge, Plissees, Rollos, Jalousien und Vorhangschienen. Wir kommen zum Aufmaß zu Ihnen.",
 };
 
 export default function KontaktPage() {
@@ -37,8 +37,8 @@ export default function KontaktPage() {
             <span aria-hidden="true" className="hidden text-sand sm:inline">
               |
             </span>
-            <a href="tel:+491746012271" className="hover:text-ink">
-              +49 174 6012271
+            <a href="tel:+491774009151" className="hover:text-ink">
+              +49 177 4009151
             </a>
             <span aria-hidden="true" className="hidden text-sand sm:inline">
               |
