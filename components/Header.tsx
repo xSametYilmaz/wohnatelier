@@ -34,6 +34,33 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+/**
+ * Das Logo liegt als einfarbige Zeichnung mit transparentem Grund vor.
+ * Als Maske gezeichnet statt als Bild eingebunden nimmt es die
+ * Schriftfarbe des Headers an und wechselt deshalb zusammen mit der
+ * Navigation von Hell auf Dunkel – mit nur einer Datei je Teil.
+ */
+function Maske({ datei, className }: { datei: string; className: string }) {
+  const maske = {
+    maskImage: `url(${datei})`,
+    WebkitMaskImage: `url(${datei})`,
+    maskSize: "contain",
+    WebkitMaskSize: "contain",
+    maskRepeat: "no-repeat",
+    WebkitMaskRepeat: "no-repeat",
+    maskPosition: "center",
+    WebkitMaskPosition: "center",
+  } as const;
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`block bg-current transition-colors duration-500 ${className}`}
+      style={maske}
+    />
+  );
+}
+
 export default function Header({ solid = false }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -89,10 +116,17 @@ export default function Header({ solid = false }: Props) {
           <Link
             href="/"
             onClick={onLogoClick}
-            aria-label="Zur Startseite"
-            className="font-display text-lg tracking-[0.18em] uppercase md:text-xl"
+            aria-label="Wohnatelier Adakli – zur Startseite"
+            className="flex items-center gap-2.5 md:gap-3"
           >
-            Adakli
+            <Maske
+              datei="/images/logo-marke.png"
+              className="h-[30px] w-[32px] md:h-9 md:w-[38px]"
+            />
+            <Maske
+              datei="/images/logo-schriftzug.png"
+              className="h-[14px] w-[156px] md:h-4 md:w-[178px]"
+            />
           </Link>
 
           {/* Desktop-Navigation */}
