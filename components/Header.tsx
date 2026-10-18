@@ -112,20 +112,16 @@ export default function Header({ solid = false }: Props) {
             : "bg-transparent text-linen border-b border-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
           <Link
             href="/"
             onClick={onLogoClick}
             aria-label="Wohnatelier Adakli – zur Startseite"
-            className="flex items-center gap-2.5 md:gap-3"
+            className="flex items-center"
           >
             <Maske
               datei="/images/logo-marke.png"
-              className="h-[30px] w-[32px] md:h-9 md:w-[38px]"
-            />
-            <Maske
-              datei="/images/logo-schriftzug.png"
-              className="h-[14px] w-[156px] md:h-4 md:w-[178px]"
+              className="h-10 w-[42px] md:h-12 md:w-[51px]"
             />
           </Link>
 
