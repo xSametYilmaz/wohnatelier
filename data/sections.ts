@@ -25,7 +25,7 @@ export const sections: Section[] = [
     eyebrow: "Für schräge und schwierige Fenster",
     body: "Dachschräge, Trapez, Rundbogen – Plissees sitzen dort, wo klassische Vorhänge an ihre Grenzen kommen. Sie lassen sich von oben und von unten verschieben, sodass Licht hereinkommt und Blicke draußen bleiben. Wabenplissees dämmen zusätzlich im Winter.",
     image: "/images/plissees.jpg",
-    alt: "Plissee an einem Dachfenster, halb geöffnet",
+    alt: "Plissees an zwei Fenstern, zur Hälfte geschlossen",
   },
   {
     id: "rollos",
@@ -43,7 +43,7 @@ export const sections: Section[] = [
     eyebrow: "Licht stufenlos dosieren",
     body: "Der Klassiker für Räume, in denen sich das Licht über den Tag verändert. Über die Lamellenstellung regeln Sie die Helligkeit stufenlos, ohne den Blick nach draußen aufzugeben. In Aluminium für Bad und Küche, in Holz für Wohnräume.",
     image: "/images/jalousien.jpg",
-    alt: "Helle Jalousien an zwei Fenstern, Lamellen schräg gestellt",
+    alt: "Jalousie mit breiten Lamellen und Leiterband, schräg gestellt",
   },
   {
     id: "vorhangschiene",
