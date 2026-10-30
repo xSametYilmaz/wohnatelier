@@ -15,6 +15,21 @@ export default function Hero() {
         className="object-cover"
       />
 
+      {/* Liegt über dem Foto; das Foto bleibt sichtbar, solange das Video
+          lädt und bei "Bewegung reduzieren". */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/images/hero.jpg"
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+      >
+        <source src="/videos/header.mp4" type="video/mp4" />
+      </video>
+
       {/* Overlay für Lesbarkeit */}
       <div className="absolute inset-0 bg-ink/45" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-transparent to-ink/60" />
